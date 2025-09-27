@@ -10,5 +10,8 @@ build-local:
 build:
   npx ng build --configuration production --base-href="/taskular-homework/"
 
-deploy:
+clean:
+  rm -r ./dist
+
+deploy: clean build
   npx ngh --dir=dist/taskular-homework/browser --name="Vladimir Makarov"
