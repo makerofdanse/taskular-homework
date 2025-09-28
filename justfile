@@ -17,7 +17,10 @@ build: restore
   npx ng build --configuration production --base-href="/taskular-homework/"
 
 clean:
-  rm -r ./dist
+  #!/usr/bin/env bash
+  if [[ -d ./dist ]]; then
+    rm -r ./dist
+  fi
 
 deploy: clean build
   npx ngh --dir=dist/taskular-homework/browser --name="Vladimir Makarov"
