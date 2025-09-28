@@ -1,0 +1,1 @@
+:root{--bg-dark: #1a1a2e;--accent-pink: #ff66cc;--accent-purple: #b266ff;--text-light: #f0e6ff;--shadow-neon: 0 0 10px var(--accent-pink), 0 0 20px var(--accent-purple)}body{background:var(--bg-dark);color:var(--text-light);font-family:Segoe UI,sans-serif;margin:0;padding:2rem;min-height:100vh;background-image:linear-gradient(45deg,#ff66cc1a,#b266ff1a)}*{box-sizing:border-box}
