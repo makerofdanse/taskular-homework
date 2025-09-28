@@ -1,0 +1,44 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #1a1a2e;
+    color: #f0e6ff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ff66cc;
+}
+h1 {
+    text-align: center;
+    color: #ff66cc;
+}
+.filters {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+.filters button {
+    padding: 5px 10px;
+    background: #b266ff;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+.filters button.active {
+    background: #ff66cc;
+}
+.clear {
+    margin-left: auto;
+    background: #ff66cc;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}

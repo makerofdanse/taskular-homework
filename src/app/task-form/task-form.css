@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+input {
+    flex: 1;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #b266ff;
+    color: #fff;
+    border-radius: 5px;
+}
+button {
+    padding: 10px;
+    background: #b266ff;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
