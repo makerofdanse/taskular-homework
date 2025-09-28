@@ -3,21 +3,79 @@
     align-items: center;
     gap: 10px;
 }
+
 .completed {
     text-decoration: line-through;
-    color: #aaa;
+    color: rgba(240, 230, 255, 0.5);
 }
+
 button {
-    padding: 5px;
-    background: #ff66cc;
+    padding: 5px 10px;
+    background: var(--accent-pink);
     border: none;
-    color: #fff;
+    color: var(--text-light);
     border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
+button:hover {
+    background: var(--accent-purple);
+    box-shadow: var(--shadow-neon);
+}
+
+.edit-btn,
+.save-btn {
+    background: var(--accent-purple);
+}
+
+.delete-btn,
+.cancel-btn {
+    background: transparent;
+    color: var(--accent-pink);
+}
+
+.delete-btn:hover,
+.cancel-btn:hover {
+    background: rgba(255, 102, 204, 0.2);
+}
+
 input[type='text'] {
     flex: 1;
     padding: 5px;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #b266ff;
-    color: #fff;
+    border: 1px solid var(--accent-purple);
+    color: var(--text-light);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input[type='text']:focus {
+    outline: none;
+    box-shadow: var(--shadow-neon);
+    border-color: var(--accent-pink);
+}
+
+input[type='checkbox'] {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-purple);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type='checkbox']:checked {
+    background: var(--accent-pink);
+    border-color: var(--accent-pink);
+}
+
+input[type='checkbox']:checked::after {
+    content: '✔';
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
 }

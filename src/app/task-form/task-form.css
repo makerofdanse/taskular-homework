@@ -3,18 +3,39 @@
     gap: 10px;
     margin-bottom: 20px;
 }
+
 input {
     flex: 1;
     padding: 10px;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #b266ff;
-    color: #fff;
-    border-radius: 5px;
+    border: 1px solid var(--accent-purple);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
+
+input::placeholder {
+    color: rgba(240, 230, 255, 0.5);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: var(--shadow-neon);
+    border-color: var(--accent-pink);
+}
+
 button {
-    padding: 10px;
-    background: #b266ff;
+    padding: 10px 20px;
+    background: var(--accent-purple);
     border: none;
-    color: #fff;
-    border-radius: 5px;
+    color: var(--text-light);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--accent-pink);
+    box-shadow: var(--shadow-neon);
 }

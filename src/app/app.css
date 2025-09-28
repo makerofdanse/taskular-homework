@@ -2,43 +2,62 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background: #1a1a2e;
-    color: #f0e6ff;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    box-shadow: 0 0 10px #ff66cc;
+    box-shadow: var(--shadow-neon);
+    backdrop-filter: blur(5px);
 }
+
 h1 {
     text-align: center;
-    color: #ff66cc;
+    color: var(--accent-pink);
+    text-shadow: 0 0 5px var(--accent-pink);
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
 }
+
 .filters {
     display: flex;
     gap: 10px;
-    margin: 10px 0;
+    margin: 15px 0;
 }
+
 .filters button {
-    padding: 5px 10px;
-    background: #b266ff;
+    padding: 8px 15px;
+    background: var(--accent-purple);
     border: none;
-    color: #fff;
-    border-radius: 5px;
+    color: var(--text-light);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
 .filters button.active {
-    background: #ff66cc;
+    background: var(--accent-pink);
+    box-shadow: var(--shadow-neon);
 }
+
 .clear {
     margin-left: auto;
-    background: #ff66cc;
+    background: var(--accent-pink);
 }
+
 ul {
     list-style: none;
     padding: 0;
 }
+
 li {
     margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
