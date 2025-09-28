@@ -1,13 +1,19 @@
 all:
   @echo "Nothing to do for all."
 
-dev:
+restore:
+  #!/usr/bin/env bash
+  if [[ ! -d ./node_modules ]]; then
+    npm install
+  fi
+
+dev: restore
   npx ng serve --host 0.0.0.0
 
-build-local:
+build-local: restore
   npx ng build --configuration production
 
-build:
+build: restore
   npx ng build --configuration production --base-href="/taskular-homework/"
 
 clean:
