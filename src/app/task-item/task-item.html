@@ -1,10 +1,10 @@
 <input type="checkbox" [checked]="task.completed" (change)="onToggle()" />
 @if (!task.editing) {
     <span [class.completed]="task.completed">{{ task.text }}</span>
-    <button (click)="onStartEdit()">edit</button>
-    <button (click)="onDelete()">delete</button>
+    <button class="edit-btn" (click)="onStartEdit()">edit</button>
+    <button class="delete-btn" (click)="onDelete()">delete</button>
 } @else {
     <input type="text" [(ngModel)]="task.editText" />
-    <button (click)="onSaveEdit()">save</button>
-    <button (click)="onCancelEdit()">cancel</button>
+    <button class="save-btn" (click)="onSaveEdit()">save</button>
+    <button class="cancel-btn" (click)="onCancelEdit()">cancel</button>
 }
