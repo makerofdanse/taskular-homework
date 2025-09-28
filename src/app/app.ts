@@ -13,12 +13,14 @@ interface Task {
 
 @Component({
     selector: 'app-root',
+    standalone: true,
     imports: [TaskForm, TaskItem, DragDropModule],
     templateUrl: './app.html',
     styleUrl: './app.css',
 })
 export class App {
-    protected readonly title = signal('taskular-homework');
+    protected readonly title = signal('Taskular');
+    protected readonly hasCompletedTasks = signal(false);
 
     tasks: Task[] = [];
     nextId = 1;
@@ -27,20 +29,24 @@ export class App {
     addTask(text: string) {
         if (text.trim()) {
             this.tasks.push({ id: this.nextId++, text, completed: false });
+            this.updateHasCompletedTasks();
         }
     }
 
     deleteTask(id: number) {
-        this.tasks = this.tasks.filter((todo) => todo.id !== id);
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+        this.updateHasCompletedTasks();
     }
 
     toggleTask(id: number) {
-        const todo = this.tasks.find((t) => t.id === id);
-        if (todo) todo.completed = !todo.completed;
+        const task = this.tasks.find((t) => t.id === id);
+        if (task) task.completed = !task.completed;
+        this.updateHasCompletedTasks();
     }
 
     clearCompleted() {
-        this.tasks = this.tasks.filter((todo) => !todo.completed);
+        this.tasks = this.tasks.filter((task) => !task.completed);
+        this.updateHasCompletedTasks();
     }
 
     setFilter(filter: 'all' | 'active' | 'completed') {
@@ -48,15 +54,15 @@ export class App {
     }
 
     get filteredTasks() {
-        return this.tasks.filter((todo) => {
-            if (this.filter === 'active') return !todo.completed;
-            if (this.filter === 'completed') return todo.completed;
+        return this.tasks.filter((task) => {
+            if (this.filter === 'active') return !task.completed;
+            if (this.filter === 'completed') return task.completed;
             return true;
         });
     }
 
-    get hasCompletedTasks(): boolean {
-        return this.tasks.some((t) => t.completed);
+    private updateHasCompletedTasks() {
+        this.hasCompletedTasks.set(this.tasks.some((t) => t.completed));
     }
 
     drop(event: CdkDragDrop<Task[]>) {
@@ -64,23 +70,23 @@ export class App {
     }
 
     startEdit(id: number) {
-        const todo = this.tasks.find((t) => t.id === id);
-        if (todo) {
-            todo.editing = true;
-            todo.editText = todo.text;
+        const task = this.tasks.find((t) => t.id === id);
+        if (task) {
+            task.editing = true;
+            task.editText = task.text;
         }
     }
 
     saveEdit(id: number, newText: string) {
-        const todo = this.tasks.find((t) => t.id === id);
-        if (todo && newText.trim()) {
-            todo.text = newText;
-            todo.editing = false;
+        const task = this.tasks.find((t) => t.id === id);
+        if (task && newText.trim()) {
+            task.text = newText;
+            task.editing = false;
         }
     }
 
     cancelEdit(id: number) {
-        const todo = this.tasks.find((t) => t.id === id);
-        if (todo) todo.editing = false;
+        const task = this.tasks.find((t) => t.id === id);
+        if (task) task.editing = false;
     }
 }

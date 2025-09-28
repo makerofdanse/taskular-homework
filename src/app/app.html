@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>angular todo vibes</h1>
+    <h1>{{ title() }}</h1>
 
     <app-task-form (taskAdded)="addTask($event)"></app-task-form>
 
@@ -7,7 +7,7 @@
         <button [class.active]="filter === 'all'" (click)="setFilter('all')">all</button>
         <button [class.active]="filter === 'active'" (click)="setFilter('active')">active</button>
         <button [class.active]="filter === 'completed'" (click)="setFilter('completed')">completed</button>
-        @if (hasCompletedTasks) {
+        @if (hasCompletedTasks()) {
             <button class="clear" (click)="clearCompleted()">clear done</button>
         }
     </div>
